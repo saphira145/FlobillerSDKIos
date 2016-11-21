@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>FlobillerFramework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Flobillersdk copy.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Flobillersdk.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>FrameWork.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>A42649D51DDF0D1B00C4CC6D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A42649DC1DDF0F3A00C4CC6D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A42649E31DDF0F7C00C4CC6D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A441925F1DC636B100E58FD8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4614C2D1DDD67E9003E6526</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4614CC91DDD69BD003E6526</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4B265811DBE519400EACF6F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
