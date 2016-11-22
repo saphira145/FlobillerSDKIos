@@ -20,12 +20,13 @@ IOS SDK and sample for Flocash Ecom API
   ```java
   [FlocashService sharedInstance].evironment = SANDBOX;
   ```
-  There are four methods in FlocashService
+  There are four methods in FBApiAccess
   * createOrder: Create ecommerce order
   * updatePaymentOpion: Select payment option for order to process payment
   * updateAdditionField: Some payment options need customer provide more info for process payment as mobile number wallet, otp etc... Call this to add more info for that kind order
   * getOrder: Use this method to query detail about order. Below is code scriptlet for how to use api
 	
+	Use FlocashSevice with UI flow by using FlocashService:	
 ```java
       Request *request = [[Request alloc] init];
 			
