@@ -35,8 +35,6 @@
 		A44192841DC6392000E58FD8 /* PaymentHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A44192831DC6392000E58FD8 /* PaymentHeaderView.xib */; };
 		A4446ADD1DC8EF5A0016C139 /* AdditionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A4446ADC1DC8EF5A0016C139 /* AdditionInfo.m */; };
 		A44B8B661DCC2EC600FA58EA /* payButton.png in Resources */ = {isa = PBXBuildFile; fileRef = A44B8B651DCC2EC600FA58EA /* payButton.png */; };
-		A44B8B6A1DCC748500FA58EA /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44B8B681DCC748500FA58EA /* Fabric.framework */; };
-		A44B8B6B1DCC748500FA58EA /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44B8B691DCC748500FA58EA /* Crashlytics.framework */; };
 		A45137D61DD0913A008C9CFA /* CheckOutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A45137D51DD0913A008C9CFA /* CheckOutTableViewCell.m */; };
 		A4517FDB1DCC0CAF000102C2 /* CardInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4517FDA1DCC0CAF000102C2 /* CardInfoViewController.m */; };
 		A4517FE61DCC11BB000102C2 /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4517FDF1DCC11BB000102C2 /* TPKeyboardAvoidingCollectionView.m */; };
@@ -170,8 +168,6 @@
 		A4446ADB1DC8EF5A0016C139 /* AdditionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdditionInfo.h; sourceTree = "<group>"; };
 		A4446ADC1DC8EF5A0016C139 /* AdditionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdditionInfo.m; sourceTree = "<group>"; };
 		A44B8B651DCC2EC600FA58EA /* payButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payButton.png; sourceTree = "<group>"; };
-		A44B8B681DCC748500FA58EA /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		A44B8B691DCC748500FA58EA /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		A45137D41DD0913A008C9CFA /* CheckOutTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckOutTableViewCell.h; sourceTree = "<group>"; };
 		A45137D51DD0913A008C9CFA /* CheckOutTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckOutTableViewCell.m; sourceTree = "<group>"; };
 		A4517FD91DCC0CAF000102C2 /* CardInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardInfoViewController.h; sourceTree = "<group>"; };
@@ -228,8 +224,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A44B8B6B1DCC748500FA58EA /* Crashlytics.framework in Frameworks */,
-				A44B8B6A1DCC748500FA58EA /* Fabric.framework in Frameworks */,
 				8679EB11C690631D217FD391 /* libPods-Flobillersdk.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,8 +345,6 @@
 			isa = PBXGroup;
 			children = (
 				A454D76A1DD179DD00C18879 /* Reachability */,
-				A44B8B681DCC748500FA58EA /* Fabric.framework */,
-				A44B8B691DCC748500FA58EA /* Crashlytics.framework */,
 				A4517FDD1DCC11BB000102C2 /* TPKeyboardAvoiding */,
 			);
 			path = ThirdParty;
