@@ -4,11 +4,11 @@ IOS SDK and sample for Flocash Ecom API
 # How to get SDK lib
 1.Open file Flobillersdk.xcworkspace
 
-2.Select FlobillerFramework at scheme build , alse select generic device to build
+2.Select UniversalLibrary at scheme build, alse select generic device to build 
 
 3.On Menu bar Xcode: Select Product -> Archive
 
-4.Go to root project folder -> _Archive -> Debug -> FlobillerFramework.framework here is the framework file
+4.Go to root project folder -> Output -> FlobillerFramework-Debug-iphoneuniversal -> FlobillerFramework.framework here is the framework file for debug mode or FlobillerFramework-Debug-iphoneuniversal folder for release mode
 
 # How to use SDK lib
 1. Add lib to your project application.
