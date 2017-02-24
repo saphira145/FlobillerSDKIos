@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		A49515011E5FEF0F00497338 /* UniversalLibrary */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = A49515021E5FEF0F00497338 /* Build configuration list for PBXAggregateTarget "UniversalLibrary" */;
+			buildPhases = (
+				A49515051E5FEF4F00497338 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = UniversalLibrary;
+			productName = UniversalLibrary;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		19C466E3CBC60A3B389C19F6 /* libPods-FlobillerFramework.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D888F9B11191DB3B32631342 /* libPods-FlobillerFramework.a */; };
 		8679EB11C690631D217FD391 /* libPods-Flobillersdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5714D37592113FF6E671FB /* libPods-Flobillersdk.a */; };
@@ -569,6 +583,11 @@
 						DevelopmentTeam = XD9ALJD5P6;
 						ProvisioningStyle = Automatic;
 					};
+					A49515011E5FEF0F00497338 = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = XD9ALJD5P6;
+						ProvisioningStyle = Automatic;
+					};
 					A4B265811DBE519400EACF6F = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = XD9ALJD5P6;
@@ -591,6 +610,7 @@
 			targets = (
 				A4B265811DBE519400EACF6F /* Flobillersdk */,
 				A4614CC91DDD69BD003E6526 /* FlobillerFramework */,
+				A49515011E5FEF0F00497338 /* UniversalLibrary */,
 			);
 		};
 /* End PBXProject section */
@@ -687,6 +707,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "";
+		};
+		A49515051E5FEF4F00497338 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "######################\n# Options\n######################\n\nREVEAL_ARCHIVE_IN_FINDER=false\n\nFRAMEWORK_NAME=\"FlobillerFramework\"\n\nSIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework\"\n\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework\"\n\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\"\n\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${FRAMEWORK_NAME}.framework\"\n\n\n######################\n# Build Frameworks\n######################\n\nxcodebuild -workspace ${PROJECT_NAME}.xcworkspace -scheme ${FRAMEWORK_NAME} -sdk iphonesimulator -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphonesimulator 2>&1\n\nxcodebuild -workspace ${PROJECT_NAME}.xcworkspace -scheme ${FRAMEWORK_NAME} -sdk iphoneos -configuration ${CONFIGURATION} clean build CONFIGURATION_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos 2>&1\n\n######################\n# Create directory for universal\n######################\n\nrm -rf \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${UNIVERSAL_LIBRARY_DIR}\"\n\nmkdir \"${FRAMEWORK}\"\n\n\n######################\n# Copy files Framework\n######################\n\ncp -r \"${DEVICE_LIBRARY_PATH}/.\" \"${FRAMEWORK}\"\n\n\n######################\n# Make an universal binary\n######################\n\nlipo \"${SIMULATOR_LIBRARY_PATH}/${FRAMEWORK_NAME}\" \"${DEVICE_LIBRARY_PATH}/${FRAMEWORK_NAME}\" -create -output \"${FRAMEWORK}/${FRAMEWORK_NAME}\" | echo\n\n# For Swift framework, Swiftmodule needs to be copied in the universal framework\nif [ -d \"${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\ncp -f ${SIMULATOR_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\n                                                                      fi\n\n                                                                      if [ -d \"${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" ]; then\n                                                                      cp -f ${DEVICE_LIBRARY_PATH}/Modules/${FRAMEWORK_NAME}.swiftmodule/* \"${FRAMEWORK}/Modules/${FRAMEWORK_NAME}.swiftmodule/\" | echo\n                                                                      fi\n\n                                                                      ######################\n                                                                      # On Release, copy the result to release directory\n                                                                      ######################\n                                                                      OUTPUT_DIR=\"${PROJECT_DIR}/Output/${FRAMEWORK_NAME}-${CONFIGURATION}-iphoneuniversal/\"\n\n                                                                      rm -rf \"$OUTPUT_DIR\"\n                                                                      mkdir -p \"$OUTPUT_DIR\"\n\n                                                                      cp -r \"${FRAMEWORK}\" \"$OUTPUT_DIR\"\n\n                                                                      if [ ${REVEAL_ARCHIVE_IN_FINDER} = true ]; then\n                                                                      open \"${OUTPUT_DIR}/\"\n                                                                      fi";
 		};
 		D6BBC277561ED5A72C572756 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -883,6 +916,22 @@
 			};
 			name = Release;
 		};
+		A49515031E5FEF0F00497338 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = XD9ALJD5P6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A49515041E5FEF0F00497338 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = XD9ALJD5P6;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		A4B265971DBE519400EACF6F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1033,6 +1082,15 @@
 			buildConfigurations = (
 				A4614CD41DDD69BD003E6526 /* Debug */,
 				A4614CD51DDD69BD003E6526 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A49515021E5FEF0F00497338 /* Build configuration list for PBXAggregateTarget "UniversalLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A49515031E5FEF0F00497338 /* Debug */,
+				A49515041E5FEF0F00497338 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
