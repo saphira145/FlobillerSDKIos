@@ -50,7 +50,7 @@
         [self showAlertError:FBNoInternet];
         return;
     }
-    [self showLoadingViewWithMessage:@"Creating order2222..."];
+    [self showLoadingViewWithMessage:@"Creating order..."];
     [FBApiAccess createOrderWithRequest:self.request completionBlock:^(OrderInfo *order, NSMutableArray *payments) {
         [self dismissLoadingView];
         paymentMenthodArray = [payments mutableCopy];
