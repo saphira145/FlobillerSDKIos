@@ -23,7 +23,7 @@
     [super viewDidLoad];
     phoneNumberLabel.text = self.phoneNumber;
     postalCodeLabel.text = self.phoneCode;
-    labelCost.text = [NSString stringWithFormat:@"%@%.2f",self.order.currencyName,self.order.amount];
+    labelCost.text = [NSString stringWithFormat:@"%@ %.2f",self.order.currencyName,self.order.amount];
     phoneNumberLabel.delegate = self;
     postalCodeLabel.delegate = self;
     scrollView.layer.borderWidth = 1.0f;

@@ -41,7 +41,7 @@
     OrderInfo *order1 = [[OrderInfo alloc] init];
     PayerInfo *payer1 = [[PayerInfo alloc] init];
     order1.amount = 1.0;
-    order1.currency = @"GHS";
+    order1.currency = @"DE";
     order1.item_name =  @"DSTV";
     order1.item_price = @"1";
     order1.orderId = @"645";
@@ -50,7 +50,7 @@
     payer1.firstName = @"pham";
     payer1.lastName = @"binh";
     payer1.email = @"binhpd1@gmail.com";
-    payer1.phoneCode = @"+233";
+    payer1.phoneCode = @"+49";
     payer1.phoneNumber = @"87016637251";
     payer1.mobile = [NSString stringWithFormat:@"%@%@",payer1.phoneCode,payer1.phoneNumber];
     
@@ -131,7 +131,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     UINavigationController *naviVC = (UINavigationController *)segue.destinationViewController;
     PaymentViewController *paymentVC =  [naviVC.viewControllers firstObject];
-    Request *request = [requestArray objectAtIndex:indexCheckOutSelected];
+    Request *request = [requestArray objectAtIndex:1];
     paymentVC.request = request;
     paymentVC.phoneCode = request.payer.phoneCode;
     paymentVC.phoneNumber = request.payer.phoneNumber;

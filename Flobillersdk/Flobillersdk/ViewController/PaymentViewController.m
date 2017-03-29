@@ -55,7 +55,7 @@
         [self dismissLoadingView];
         paymentMenthodArray = [payments mutableCopy];
         orderResult = order;
-        costLabel.text = [NSString stringWithFormat:@"%@%.2f",orderResult.currencyName,orderResult.amount];
+        costLabel.text = [NSString stringWithFormat:@"%@ %.2f",orderResult.currencyName,orderResult.amount];
         
         [self.tableView reloadData];
         NSIndexPath* selectedCellIndexPath= [NSIndexPath indexPathForRow:0 inSection:0];

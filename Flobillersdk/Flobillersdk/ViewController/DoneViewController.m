@@ -43,7 +43,7 @@
     buttonViewRecipt.layer.borderWidth = 1.0f;
     buttonViewRecipt.layer.cornerRadius = 3.0f;
 
-    costLabel.text = [NSString stringWithFormat:@"%@%.2f",self.orderDone.currencyName,self.orderDone.amount];
+    costLabel.text = [NSString stringWithFormat:@"%@ %.2f",self.orderDone.currencyName,self.orderDone.amount];
     if ([self.orderDone.status isEqualToString:STATUS_SUCCESS]) {
         descriptionTextView.hidden = YES;
         showMoreButton.hidden      = YES;
