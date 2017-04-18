@@ -1,6 +1,0 @@
-framework module FlobillerFramework {
-  umbrella header "FlobillerFramework.h"
-
-  export *
-  module * { export * }
-}
