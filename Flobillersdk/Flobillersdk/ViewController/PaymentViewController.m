@@ -51,7 +51,7 @@
         return;
     }
     [self showLoadingViewWithMessage:@"Creating order..."];
-    [FBApiAccess createOrderWithRequest:self.request completionBlock:^(OrderInfo *order, NSMutableArray *payments) {
+    [FBApiAccess createOrderWithRequest:self.request byUrlString:nil completionBlock:^(OrderInfo *order, NSMutableArray *payments) {
         [self dismissLoadingView];
         paymentMenthodArray = [payments mutableCopy];
         orderResult = order;
@@ -112,7 +112,7 @@
             }
             [self showLoadingView];
             
-            [FBApiAccess updatePaymentOpion:orderResult.traceNumber idPayment:paymentMethodInfo.idPayment cardInfo:nil completionBlock:^(OrderInfo *order) {
+            [FBApiAccess updatePaymentOpion:orderResult.traceNumber idPayment:paymentMethodInfo.idPayment cardInfo:nil byUrlString:nil completionBlock:^(OrderInfo *order) {
                 [self dismissLoadingView];
 
                 NSBundle *bundle = [NSBundle bundleForClass:[self class]];

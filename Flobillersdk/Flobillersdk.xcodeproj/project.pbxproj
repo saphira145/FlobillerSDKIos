@@ -575,7 +575,7 @@
 		A4B2657A1DBE519400EACF6F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Do Quoc Lam";
 				TargetAttributes = {
 					A4614CC91DDD69BD003E6526 = {
@@ -863,7 +863,7 @@
 			baseConfigurationReference = 12CBD82CF420616D8F199A10 /* Pods-FlobillerFramework.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hoang Duc Thinh (QE8JQKY3UT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = XD9ALJD5P6;
@@ -922,7 +922,7 @@
 			baseConfigurationReference = 2454EDF4ACB48A1B23A5B2F7 /* Pods-FlobillerFramework.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hoang Duc Thinh (QE8JQKY3UT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = XD9ALJD5P6;

@@ -115,7 +115,7 @@
         return;
     }
     [self showLoadingView];
-    [FBApiAccess updatePaymentOpion:self.orderInfo.traceNumber idPayment:self.paymenMethod.idPayment cardInfo:card completionBlock:^(OrderInfo *order) {
+    [FBApiAccess updatePaymentOpion:self.orderInfo.traceNumber idPayment:self.paymenMethod.idPayment cardInfo:card byUrlString:nil completionBlock:^(OrderInfo *order) {
         NSBundle *bundle = [NSBundle bundleForClass:[self class]];
         UIStoryboard *main = [UIStoryboard storyboardWithName:@"FBFlobillerSdkStoryboard" bundle:bundle];
         DoneViewController *doneVC = [main instantiateViewControllerWithIdentifier:@"doneVC"];

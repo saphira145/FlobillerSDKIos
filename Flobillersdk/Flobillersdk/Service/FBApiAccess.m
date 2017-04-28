@@ -16,12 +16,12 @@
 
 @implementation FBApiAccess
 
-+ (void)createOrderWithRequest:(Request *)request completionBlock:(void(^)(OrderInfo *order,NSMutableArray *payments))completion failureBlock:(void(^)(NSString *msgError))failure {
++ (void)createOrderWithRequest:(Request *)request byUrlString:(NSString *)urlStr completionBlock:(void(^)(OrderInfo *order,NSMutableArray *payments))completion failureBlock:(void(^)(NSString *msgError))failure {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         
         NSString *baseUrl = [FlocashService sharedInstance].evironment?LIVE_URL:TEST_URL;
-        NSMutableURLRequest *jsonRequest = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:[NSString stringWithFormat:@"%@%@",baseUrl,ORDER_PATH] parameters:[request dictionaryByRequest] error:nil];
+        NSMutableURLRequest *jsonRequest = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:urlStr? urlStr : [NSString stringWithFormat:@"%@%@",baseUrl,ORDER_PATH] parameters:[request dictionaryByRequest] error:nil];
         
         jsonRequest.timeoutInterval = 60.0f;
         [self setAuthorizationHeader:jsonRequest];
@@ -58,14 +58,17 @@
         }] resume];
     });
 }
-+ (void)getOrder:(NSString *)traceNumber completionBlock:(void(^)(NSDictionary *respone))completion failureBlock:(void(^)(NSString *msgError))failure {
+
+
+
++ (void)getOrder:(NSString *)traceNumber byUrlString:(NSString *)urlStr completionBlock:(void(^)(NSDictionary *respone))completion failureBlock:(void(^)(NSString *msgError))failure {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         manager.requestSerializer.timeoutInterval = 60.0f;
         NSString *baseUrl = [FlocashService sharedInstance].evironment?LIVE_URL:TEST_URL;
         
-        [manager GET:[NSString stringWithFormat:@"%@%@/%@",baseUrl,ORDER_PATH,traceNumber] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        [manager GET:urlStr ? urlStr : [NSString stringWithFormat:@"%@%@/%@",baseUrl,ORDER_PATH,traceNumber] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             if ([self isSuccess:responseObject]) {
                 if (failure) {
@@ -86,7 +89,7 @@
     
 }
 
-+ (void)updatePaymentOpion:(NSString *)traceNumber idPayment:(NSInteger)iD cardInfo:(CardInfo *)cardInfo completionBlock:(void(^)(OrderInfo *order))completion failureBlock:(void(^)(NSString *msgError))failure {
++ (void)updatePaymentOpion:(NSString *)traceNumber idPayment:(NSInteger)iD cardInfo:(CardInfo *)cardInfo byUrlString:(NSString *)urlStr completionBlock:(void(^)(OrderInfo *order))completion failureBlock:(void(^)(NSString *msgError))failure {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         
@@ -98,7 +101,7 @@
             jsonPost = [NSString stringWithFormat:@"{\"order\":{\"traceNumber\":\"%@\"},\"payOption\":{\"id\":%ld}}",traceNumber,(long)iD];
         }
         NSString *baseUrl = [FlocashService sharedInstance].evironment?LIVE_URL:TEST_URL;
-        NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"PUT" URLString:[NSString stringWithFormat:@"%@%@",baseUrl,ORDER_PATH] parameters:nil error:nil];
+        NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"PUT" URLString:urlStr ? urlStr : [NSString stringWithFormat:@"%@%@",baseUrl,ORDER_PATH] parameters:nil error:nil];
         
         
         [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
@@ -137,7 +140,7 @@
         }] resume];
     });
 }
-+ (void)updateAdditionField:(NSString *)mobileNumber traceNumber:(NSString *)traceNumber completionBlock:(void(^)(OrderInfo *order))completion failureBlock:(void(^)(NSString *msgError))failure {
++ (void)updateAdditionField:(NSString *)mobileNumber traceNumber:(NSString *)traceNumber byUrlString:(NSString *)urlStr completionBlock:(void(^)(OrderInfo *order))completion failureBlock:(void(^)(NSString *msgError))failure {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         AFHTTPSessionManager *manager =  [[AFHTTPSessionManager alloc]initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];;
         
@@ -153,7 +156,8 @@
         
         [self setAuthorizationHeaderManager:manager];
         NSString *baseUrl = [FlocashService sharedInstance].evironment?LIVE_URL:TEST_URL;
-        [manager POST:[NSString stringWithFormat:@"%@%@/%@",baseUrl,ORDER_PATH,traceNumber] parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
+
+        [manager POST:urlStr? urlStr : [NSString stringWithFormat:@"%@%@/%@",baseUrl,ORDER_PATH,traceNumber] parameters:param progress:^(NSProgress * _Nonnull downloadProgress) {
         } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             if ([self isSuccess:responseObject]) {
                 if (failure) {

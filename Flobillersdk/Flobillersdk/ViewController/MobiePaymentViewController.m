@@ -47,9 +47,9 @@
         return;
     }
     [self showLoadingView];
-    [FBApiAccess updatePaymentOpion:self.order.traceNumber idPayment:self.paymentInfo.idPayment cardInfo:nil completionBlock:^(OrderInfo *order) {
+    [FBApiAccess updatePaymentOpion:self.order.traceNumber idPayment:self.paymentInfo.idPayment cardInfo:nil byUrlString:nil completionBlock:^(OrderInfo *order) {
         
-        [FBApiAccess updateAdditionField:[NSString stringWithFormat:@"%@%@",postalCodeLabel.text,phoneNumberLabel.text] traceNumber:self.order.traceNumber completionBlock:^(OrderInfo *order) {
+        [FBApiAccess updateAdditionField:[NSString stringWithFormat:@"%@%@",postalCodeLabel.text,phoneNumberLabel.text] traceNumber:self.order.traceNumber byUrlString:nil completionBlock:^(OrderInfo *order) {
             
             [self dismissLoadingView];
             NSBundle *bundle = [NSBundle bundleForClass:[self class]];

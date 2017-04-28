@@ -28,6 +28,7 @@
 }
 
 -(void)awakeFromNib {
+
     [self setup];
 }
 

@@ -21,7 +21,7 @@
     __weak IBOutlet UIView *viewBorder;
     __weak IBOutlet UIView *viewButtonPay;
 }
-- (id)init;
+
 @property (copy, nonatomic) NSString *phoneCode;
 @property (copy, nonatomic) NSString *phoneNumber;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

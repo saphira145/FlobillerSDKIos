@@ -11,11 +11,11 @@
 
 @interface FBApiAccess : NSObject
 
-+ (void)createOrderWithRequest:(Request *)request completionBlock:(void(^)(OrderInfo *order,NSMutableArray *payments))completion failureBlock:(void(^)(NSString *msgError))failure;
++ (void)createOrderWithRequest:(Request *)request byUrlString:(NSString *)urlStr completionBlock:(void(^)(OrderInfo *order,NSMutableArray *payments))completion failureBlock:(void(^)(NSString *msgError))failure;
 
-+ (void)updatePaymentOpion:(NSString *)traceNumber idPayment:(NSInteger)iD cardInfo:(CardInfo *)cardInfo completionBlock:(void(^)(OrderInfo *order))completion failureBlock:(void(^)(NSString *msgError))failure;
++ (void)updatePaymentOpion:(NSString *)traceNumber idPayment:(NSInteger)iD cardInfo:(CardInfo *)cardInfo byUrlString:(NSString *)urlStr completionBlock:(void(^)(OrderInfo *order))completion failureBlock:(void(^)(NSString *msgError))failure;
 
-+ (void)updateAdditionField:(NSString *)mobileNumber traceNumber:(NSString *)traceNumber completionBlock:(void(^)(OrderInfo *order))completion failureBlock:(void(^)(NSString *msgError))failure;
++ (void)updateAdditionField:(NSString *)mobileNumber traceNumber:(NSString *)traceNumber byUrlString:(NSString *)urlStr completionBlock:(void(^)(OrderInfo *order))completion failureBlock:(void(^)(NSString *msgError))failure;
 
-+ (void)getOrder:(NSString *)traceNumber completionBlock:(void(^)(NSDictionary *respone))completion failureBlock:(void(^)(NSString *msgError))failure;
++ (void)getOrder:(NSString *)traceNumber byUrlString:(NSString *)urlStr completionBlock:(void(^)(NSDictionary *respone))completion failureBlock:(void(^)(NSString *msgError))failure;
 @end
